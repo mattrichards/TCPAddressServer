@@ -31,6 +31,7 @@ def main():
     options = parser.parse_args()[0]
     port = options.port
     VERBOSE = options.verbose
+    SocketServer.TCPServer.allow_reuse_address = True
     server = SocketServer.TCPServer(("0.0.0.0", port), TCPHandler)
     print "Listening on port %d" % port
     # Activate the server; this will keep running until you
